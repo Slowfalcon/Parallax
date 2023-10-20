@@ -1,0 +1,104 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: black;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  line-height: 1.55;
+}
+::-webkit-scrollbar{
+   display: none;
+}
+:root{
+  --index: calc(1vw + 1vh);
+  --text: #e7e7e0;
+}
+.main-header{
+  position: relative;  
+}
+.main-header::after{
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: calc(var(--index) * 15);
+  background-image: url(/img/batas.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  bottom: calc(var(--index) * -8);
+  transform: translate3d(0,calc(var(--scrollTop) / 5),0);
+}
+.layers{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+.layer{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+}
+.layer_awal{
+  transform: translate3d(0,calc(var(--scrollTop) / 1.6),0);
+}
+.layer_tengah{
+  transform: translate3d(0,calc(var(--scrollTop) / 2.5),0);
+  z-index: 2;
+}
+.layer_akhir{
+  z-index: 2;
+  transform: translate3d(0,calc(var(--scrollTop) / 5.7),0);
+}
+.layer-header{
+  z-index: 1;
+  transform: translate3d(0,calc(var(--scrollTop) / 2),0);
+  will-change: transform;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: var(--text) ;
+  text-shadow: 0 0 15px #8d6d29;
+}
+.layers-title{
+  font-size: calc(var(--index) * 1.2);
+  letter-spacing: calc(var(--index) / 2);
+}
+.layers-caption{
+  font-size: calc(var(--index) / 1.2);
+  letter-spacing: calc(var(--index) / 3.7);
+  margin-top:calc(var(--index) * -0.75);
+}
+.main-article{
+  --articel-transform: translate3d(0, calc(var(--scrollTop) / 7.5),0);
+  min-height: 100vh;
+  background-size: cover;
+  background-image: center ;
+  color: var(--text);
+  display: flex;
+  position: relative;
+  z-index: -2;
+}
+.article-header{
+  margin-top: calc(var(--index) * 8);
+  text-transform: uppercase;
+  font-size: calc(var(--index) / 1.2);
+  letter-spacing: calc(var(--index) / 3.7);
+  transform: var(--articel-transform);
+  will-change: transform;
+}
+.paragraph{
+  max-width: calc(var(--index) * 30);
+  font-size: calc(var(--index) * 0.6);
+  margin-top: calc(var(--index) / 1.25);
+  transform: var(--articel-transform);
+  will-change: transform;
+}
